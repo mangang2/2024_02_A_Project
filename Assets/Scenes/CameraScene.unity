@@ -378,6 +378,72 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &589256809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 589256812}
+  - component: {fileID: 589256811}
+  - component: {fileID: 589256810}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!156049354 &589256810
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589256809}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 1}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
+--- !u!114 &589256811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589256809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aaaea69b464764d8704dd6caa2990a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 10
+  height: 10
+  cellSize: 1
+  cellPrefabs: {fileID: 6279225963300609663, guid: a87bb2bbb8d1d4f48a25fa2187759ca9,
+    type: 3}
+  buildingPrefabs: {fileID: 1320303377968638413, guid: c9027ba6d35029a45a8034db8fa9d93b,
+    type: 3}
+  playerController: {fileID: 1195361540}
+  grid: {fileID: 589256810}
+--- !u!4 &589256812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589256809}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 1.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1080463387
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1080463388
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -519,6 +585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 5
+  rotationSpeed: 10
   firstPersonCamera: {fileID: 330585545}
   thirdPersonCamera: {fileID: 1961420210}
   mouseSenesitivity: 2
@@ -527,6 +594,7 @@ MonoBehaviour:
   maxRadius: 10
   yMinLimit: -90
   yMaxLimit: 90
+  isFirstperson: 1
 --- !u!136 &1195361541
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -788,3 +856,4 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 1080463391}
   - {fileID: 1195361544}
+  - {fileID: 589256812}
