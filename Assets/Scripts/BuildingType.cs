@@ -17,6 +17,10 @@ using UnityEngine;
         public string itemName;
         public ItemType resultItem;
         public int resultAmount = 1;
+
+        public float hungerRestoreAmount;
+        public float repairAmount;
+
         public ItemType[] requiredItems;
         public int[] requiredAmounts;
     }
