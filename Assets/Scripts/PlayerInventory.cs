@@ -13,6 +13,10 @@ public class PlayerInventory : MonoBehaviour
     public int bushCount = 0;               //수풀 개수
     public int treeCount = 0;               //나무 개수
 
+    public int veagetableStewCount = 0;
+    public int fruitSaladCount = 0;
+    public int repairKitCount = 0;
+
     public void Start()
     {
         survivalStats = GetComponent<SurvivalStats>();
@@ -59,16 +63,28 @@ public class PlayerInventory : MonoBehaviour
                 Debug.Log($"크리스탈 획득 ! 현재 개수 : {crystalCount}");                //현재 크리스탈 개수 출력
                 break; 
             case ItemType.Plant:
-                crystalCount++;    //식물 개수 증가
+                plantCount++;    //식물 개수 증가
                 Debug.Log($"식물 획득 ! 현재 개수 : {plantCount}");                      //현재 식물 개수 출력
                 break;
             case ItemType.Bush:
-                crystalCount++;    //수풀 개수 증가
+                bushCount++;    //수풀 개수 증가
                 Debug.Log($"수풀 획득 ! 현재 개수 : {bushCount}");                       //현재 수풀 개수 출력
                 break;
             case ItemType.Tree:
-                crystalCount++;    //나무 개수 증가
+                treeCount++;    //나무 개수 증가
                 Debug.Log($"나무 획득 ! 현재 개수 : {treeCount}");                       //현재 나무 개수 출력
+                break;
+            case ItemType.VeagetableStew:
+                crystalCount++;    //나무 개수 증가
+                Debug.Log($"나무 획득 ! 현재 개수 : {veagetableStewCount}");                       //현재 나무 개수 출력
+                break;
+            case ItemType.fruitSalad:
+                fruitSaladCount++;    //나무 개수 증가
+                Debug.Log($"나무 획득 ! 현재 개수 : {fruitSaladCount}");                       //현재 나무 개수 출력
+                break;
+            case ItemType.RepairKit:
+                repairKitCount++;    //나무 개수 증가
+                Debug.Log($"나무 획득 ! 현재 개수 : {repairKitCount}");                       //현재 나무 개수 출력
                 break;
         }
     }
@@ -89,7 +105,7 @@ public class PlayerInventory : MonoBehaviour
                 if (plantCount >= amount)
                 {
                     plantCount -= amount;    
-                    Debug.Log($"크리스탈 {amount} tkdyd ! 현재 개수 : {plantCount}");               
+                    Debug.Log($"식물 {amount} tkdyd ! 현재 개수 : {plantCount}");               
                     return true;
                 }
                 break;
@@ -97,7 +113,7 @@ public class PlayerInventory : MonoBehaviour
                 if (bushCount >= amount)
                 {
                     bushCount -= amount;    
-                    Debug.Log($"크리스탈 {amount} tkdyd ! 현재 개수 : {bushCount}");                
+                    Debug.Log($"덤불 {amount} tkdyd ! 현재 개수 : {bushCount}");                
                     return true;
                 }
                 break;
@@ -105,11 +121,35 @@ public class PlayerInventory : MonoBehaviour
                 if (treeCount >= amount)
                 {
                     treeCount -= amount;   
-                    Debug.Log($"크리스탈 {amount} tkdyd ! 현재 개수 : {treeCount}");                
+                    Debug.Log($"나무 {amount} tkdyd ! 현재 개수 : {treeCount}");                
                     return true;
                 }
                 break;
-         
+            case ItemType.VeagetableStew:
+                if (veagetableStewCount >= amount)
+                {
+                    veagetableStewCount -= amount;
+                    Debug.Log($"야채 스튜 {amount} tkdyd ! 현재 개수 : {veagetableStewCount}");
+                    return true;
+                }
+                break;
+            case ItemType.fruitSalad:
+                if (fruitSaladCount >= amount)
+                {
+                    fruitSaladCount -= amount;
+                    Debug.Log($"과일 샐러드 {amount} tkdyd ! 현재 개수 : {fruitSaladCount}");
+                    return true;
+                }
+                break;
+            case ItemType.RepairKit:
+                if (repairKitCount >= amount)
+                {
+                    repairKitCount -= amount;
+                    Debug.Log($"수리 키드 {amount} tkdyd ! 현재 개수 : {repairKitCount}");
+                    return true;
+                }
+                break;
+
         }
         return false;
 
@@ -127,6 +167,13 @@ public class PlayerInventory : MonoBehaviour
                 return bushCount;
             case ItemType.Tree:
                 return treeCount;
+            case ItemType.VeagetableStew:
+                return veagetableStewCount;
+            case ItemType.fruitSalad:
+                return fruitSaladCount;
+            case ItemType.RepairKit:
+                return repairKitCount;
+
             default:
                 return 0;
         }
